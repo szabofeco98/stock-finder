@@ -10,7 +10,6 @@ import { notFound } from 'next/navigation';
 
 async function fetchTickerDetails(symbol: string): Promise<TickerData> {
   if (!symbol) throw new Error('Symbol not found');
-
   const quoteResponse = await alphaVintageApi.get<QuoteResponse>('', {
     params: {
       symbol,
@@ -23,13 +22,16 @@ async function fetchTickerDetails(symbol: string): Promise<TickerData> {
       function: 'OVERVIEW',
     },
   });
+
+  if (!overViewResponse.data.Symbol || !quoteResponse.data['Global Quote']) throw new Error('Result not found');
+
   return tickerDetailResponseToTickerDataMapper(overViewResponse.data, quoteResponse.data);
 }
 
 type TickerDetailPageParams = { params: Promise<{ symbol: string }> };
 
 export default async function Page({ params }: TickerDetailPageParams) {
-  const symbol = (await params).symbol;
+  const { symbol } = await params;
   let ticker!: TickerData;
 
   try {
