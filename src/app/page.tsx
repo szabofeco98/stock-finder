@@ -11,8 +11,10 @@ export default async function Home(params: HomePageProps) {
   console.log(query);
 
   return (
-    <section className="container m-auto">
-      <h1 className="mx-4 md:mx-0 text-2xl mb-4">Welcome on Stock Finder</h1>
+    <section aria-labelledby="title" className="container m-auto">
+      <h1 id="title" className="mx-4 md:mx-0 text-2xl mb-4">
+        Welcome on Stock Finder
+      </h1>
       <Card className="max-h-[70vh] min-h-[70vh] md:max-h-[90vh] mx-4 md:mx-0">
         <CardHeader className="pb-8 border-b-1">
           <StockListHeader query={query} />

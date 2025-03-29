@@ -8,7 +8,7 @@ type headerProps = { className?: string };
 export default function Header({ className }: headerProps) {
   return (
     <header className={cn('border-b-1 pb-4 mb-4 pt-4 ', className)}>
-      <div className="container m-auto flex flex-col items-center gap-4 md:flex-row md:justify-between">
+      <div className="container m-auto flex items-center px-8 md:px-0 gap-4 justify-between">
         <Link className="font-bold flex gap-2" href="/">
           <TrendingUp />
           Stock Finder
