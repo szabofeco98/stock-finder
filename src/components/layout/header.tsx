@@ -13,7 +13,10 @@ export default function Header({ className }: headerProps) {
           <TrendingUp />
           Stock Finder
         </Link>
-        <ModeToggle />
+        <div className="flex gap-4 items-center">
+          <Link href={'/watch-list'}>Watch List</Link>
+          <ModeToggle />
+        </div>
       </div>
     </header>
   );

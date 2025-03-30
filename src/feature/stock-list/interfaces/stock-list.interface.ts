@@ -3,5 +3,5 @@ export interface StockItem {
   readonly symbol: string;
   readonly country: string;
   readonly currency: string;
-  readonly type: string;
+  readonly type?: string;
 }

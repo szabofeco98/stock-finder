@@ -8,7 +8,6 @@ type HomePageProps = { readonly searchParams: Promise<{ readonly [QUERY_PARAM]: 
 export default async function Home(params: HomePageProps) {
   const searchParams = await params.searchParams;
   const query = searchParams[QUERY_PARAM];
-  console.log(query);
 
   return (
     <section aria-labelledby="title" className="container m-auto">
