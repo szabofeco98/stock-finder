@@ -10,6 +10,7 @@ type StockListHeaderProps = { readonly className?: string; readonly query: strin
 export default function StockListHeader({ className, query = '' }: StockListHeaderProps) {
   const [searchValue, setSearchValue] = useState<string>(query);
   const router = useRouter();
+  console.log(window.navigator.userAgent);
 
   function handleSearchChange(value: string) {
     if (value !== query && searchValue !== value) {
@@ -21,5 +22,10 @@ export default function StockListHeader({ className, query = '' }: StockListHead
     }
   }
 
-  return <SearchInput className={cn('w-full', className)} value={searchValue} onValueChange={handleSearchChange} />;
+  return (
+    <>
+      <pre>{JSON.stringify(window.navigator.appVersion, null, 4)}</pre>
+      <SearchInput className={cn('w-full', className)} value={searchValue} onValueChange={handleSearchChange} />
+    </>
+  );
 }
